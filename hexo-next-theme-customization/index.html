@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Hexo-NexT 主题个性化定制 - 石头的杂货铺</title><meta name="Description" content="St1020的博客"><meta property="og:title" content="Hexo-NexT 主题个性化定制" />
+<meta property="og:description" content="本篇文章主要谈一谈我是如何个性化定制 Hexo 的NexT 主题的。
+Hexo 的主题有许多种，其中最知名的莫过于 NexT 主题了，我也选择了这款主题作为我的博客的默认主题。实际上，我本来是打算使用 Hugo 来搭建博客的，但苦于没有找到喜欢的主题，只好作罢。如果未来找到了足够好的主题，我应该会将博客迁移到 Hugo 上吧。本篇也是作为我折腾 Hexo 的一篇记录。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://st1020.top/hexo-next-theme-customization/" />
+<meta property="og:image" content="https://st1020.top/logo.png"/>
+<meta property="article:published_time" content="2020-04-09T10:32:14+08:00" />
+<meta property="article:modified_time" content="2020-04-09T10:32:14+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://st1020.top/logo.png"/>
+
+<meta name="twitter:title" content="Hexo-NexT 主题个性化定制"/>
+<meta name="twitter:description" content="本篇文章主要谈一谈我是如何个性化定制 Hexo 的NexT 主题的。
+Hexo 的主题有许多种，其中最知名的莫过于 NexT 主题了，我也选择了这款主题作为我的博客的默认主题。实际上，我本来是打算使用 Hugo 来搭建博客的，但苦于没有找到喜欢的主题，只好作罢。如果未来找到了足够好的主题，我应该会将博客迁移到 Hugo 上吧。本篇也是作为我折腾 Hexo 的一篇记录。"/>
+<meta name="application-name" content="石头的杂货铺">
+<meta name="apple-mobile-web-app-title" content="石头的杂货铺"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://st1020.top/hexo-next-theme-customization/" /><link rel="prev" href="https://st1020.top/arch-install/" /><link rel="next" href="https://st1020.top/powered-by-hugo/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hexo-NexT 主题个性化定制",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/st1020.top\/hexo-next-theme-customization\/"
+        },"genre": "posts","keywords": "Hexo, Blog","wordcount":  4752 ,
+        "url": "https:\/\/st1020.top\/hexo-next-theme-customization\/","datePublished": "2020-04-09T10:32:14+08:00","dateModified": "2020-04-09T10:32:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": "st1020","logo": "https:\/\/st1020.top\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "st1020"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="石头的杂货铺"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.svg"
+        data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+        data-sizes="auto"
+        alt="/logo.svg"
+        title="/logo.svg" />石头的杂货铺</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="石头的杂货铺"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.svg"
+        data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+        data-sizes="auto"
+        alt="/logo.svg"
+        title="/logo.svg" />石头的杂货铺</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Hexo-NexT 主题个性化定制</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://st1020.top/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>st1020</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/hexo/"><i class="far fa-folder fa-fw"></i>Hexo</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-09">2020-04-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4752 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hexo-搭建和主题安装">Hexo 搭建和主题安装</a></li>
+    <li><a href="#安装插件">安装插件</a></li>
+    <li><a href="#hexo-cake-moon-menu">hexo-cake-moon-menu</a>
+      <ul>
+        <li><a href="#配置方法">配置方法</a></li>
+        <li><a href="#添加-简体繁体转换">添加 简体/繁体转换</a></li>
+      </ul>
+    </li>
+    <li><a href="#夜间模式">夜间模式</a></li>
+    <li><a href="#一言">一言</a></li>
+    <li><a href="#最后">最后</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>本篇文章主要谈一谈我是如何个性化定制 Hexo 的NexT 主题的。</p>
+<p>Hexo 的主题有许多种，其中最知名的莫过于 NexT 主题了，我也选择了这款主题作为我的博客的默认主题。实际上，我本来是打算使用 Hugo 来搭建博客的，但苦于没有找到喜欢的主题，只好作罢。如果未来找到了足够好的主题，我应该会将博客迁移到 Hugo 上吧。本篇也是作为我折腾 Hexo 的一篇记录。</p>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">自2020年7月15日起，本博客已经由 Hexo 迁移到了 Hugo，本文部分内容已经不适用了，你可以点击<a href="/hexo-next-theme-customization/hexo.zip" rel="">这里</a>下载本博客最后版本的 Hexo 源码。</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>本文基于 NexT 主题 7.8.0 版本，理论上适用于 NexT 7.0+ 。</p>
+<p>下文中<code>网站的配置文件</code>指 Hexo 根目录下的<code>_config.yml</code>，<code>主题的配置文件</code>位置取决于你的主题配置情况。</p>
+</div>
+        </div>
+    </div>
+<h2 id="hexo-搭建和主题安装">Hexo 搭建和主题安装</h2>
+<p>关于 Hexo 搭建和主题安装的教程可以说是数不胜数了，我这里就不做赘述了。我使用了 Github page 来储存发布网页，同时同步到 Zeit.co 上作为镜像，并且将 <a href="https://www.st1020.top/" target="_blank" rel="noopener noreffer">st1020.top</a> 域名解析到这两个网址，让 DNS 自动选择线路。许多其他教程还同时部署到了 Coding 来加速国内的访问，我并没有这么做，主要懒得再注册一个账户了，并且实际测试下来网站的访问速度还在可以接受的范围内。如果你想要查看我的博客配置，可以访问我的 <a href="https://github.com/st1020/st1020.github.io/tree/hexo" target="_blank" rel="noopener noreffer">Gtihub</a> 。</p>
+<h2 id="安装插件">安装插件</h2>
+<p>Hexo 支持很多方便的插件，我安装的主要如下：</p>
+<ul>
+<li><a href="https://github.com/jiangtj-lab/hexo-cake-moon-menu" target="_blank" rel="noopener noreffer">hexo-cake-moon-menu</a></li>
+<li><a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener noreffer">hexo-deployer-git</a></li>
+<li><a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener noreffer">hexo-generator-feed</a></li>
+<li><a href="https://github.com/hexo-next/hexo-generator-searchdb" target="_blank" rel="noopener noreffer">hexo-generator-searchdb</a></li>
+<li><a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="noopener noreffer">hexo-generator-sitemap</a></li>
+<li><a href="https://github.com/tea3/hexo-related-popular-posts" target="_blank" rel="noopener noreffer">hexo-related-popular-posts</a></li>
+<li><a href="https://github.com/wzpan/hexo-renderer-pandoc" target="_blank" rel="noopener noreffer">hexo-renderer-pandoc</a></li>
+<li><a href="https://github.com/theme-next/hexo-symbols-count-time" target="_blank" rel="noopener noreffer">hexo-symbols-count-time</a></li>
+</ul>
+<p>其配置可直接参看 NexT 主题文档和上面的插件链接。</p>
+<h2 id="hexo-cake-moon-menu">hexo-cake-moon-menu</h2>
+<p><a href="https://github.com/jiangtj-lab/hexo-cake-moon-menu" target="_blank" rel="noopener noreffer">hexo-cake-moon-menu</a> 是一款来自 <a href="https://github.com/ike-c/hexo-theme-inside" target="_blank" rel="noopener noreffer">hexo-theme-inside</a> 主题的悬浮菜单模块，支持自定义菜单项。我打算为其增加夜间模式和简体/繁体自动切换的功能。由于我之前对 Web 前端开发基本上是一窍不通的，所以下面的过程可能有不恰当的地方，还请各位见谅。</p>
+<h3 id="配置方法">配置方法</h3>
+<p>根据 Github 上的方法，自定义 hexo-cake-moon-menu 需要自己编写 JS 插件脚本进行注入，修改布局文件，再修改<code>网站配置文件</code>，看起来很复杂，但好在 NexT 主题已经提供自定义布局的方法，我们只需要修改<code>主题的配置文件</code>中的<code>custom_file_path:</code>配置即可。</p>
+<p>而对于 hexo-cake-moon-menu 插件的配置，按照作者的说明是这样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">moon_menu</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">chat</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">icon</span><span class="p">:</span><span class="w"> </span>fa<span class="w"> </span>fa-comments<span class="w">
+</span><span class="w">    </span><span class="k">func</span><span class="p">:</span><span class="w"> </span>openGitter<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>其中<code>icon</code>参数为该项的图标，可以在 <a href="https://fontawesome.com/icons" target="_blank" rel="noopener noreffer">Font Awesome</a> 中找到，<code>func</code>则为点击这一项时运行的 JavaScript 函数名。所以我们的大体思路就是：</p>
+<ol>
+<li>编写一个 JavaScript 脚本实现相关功能</li>
+<li>添加自定义布局，使网页加载对应的脚本</li>
+<li>修改配置文件，指向相应的函数</li>
+</ol>
+<h3 id="添加-简体繁体转换">添加 简体/繁体转换</h3>
+<p>关于这个功能的实现，网上已经有了相关脚本了，我参考的是这篇教程：</p>
+<p><a href="http://qingbo.site/2016/10/11/how-set-Chinese-Simplified-switch-to-Chinese-Traditional/" target="_blank" rel="noopener noreffer">两步让你的网站支持简体繁体切换</a></p>
+<p>其中提供了一个简繁转换的脚本，我在此基础上做了一点修改，功能上应该是相同的，可以点击<a href="http://st1020.top/hexo-next-theme-customization/tw_cn.js" target="_blank" rel="noopener noreffer">这里</a>下载，如果想要下载原脚本的话可以访问上面的网站。</p>
+<p>首先下载上面的脚本，放在<code>/source/js/tw_cn.js</code> 。</p>
+<p>然后我们需要修改<code>主题的配置文件</code>，找到其中的<code>custom_file_path:</code>选项，把下面这行反注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">footer</span><span class="p">:</span><span class="w"> </span>source/_data/footer.swig<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>然后新建<code>/source/_data/footer.swig</code>文件，写入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;translate-style&#34;</span><span class="p">&gt;</span>繁/简：<span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;translateLink&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:translatePage();&#34;</span><span class="p">&gt;</span>繁体<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/tw_cn.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这相当于在每个网页的<code>footer</code>部分都添加了上面两行 HTML 代码，第一行表示创建一个<code>&lt;div&gt;</code> ，里面包含两部分，一部分是文字<code>繁/简：</code> ，另一部分是一个超链接，<code>id</code>为<code>&quot;translateLink&quot;</code> ，点击后会运行 JS 函数<code>translatePage()</code> ，第二行就是引入<code>/js/tw_cn.js</code>脚本。</p>
+<p>如果你使用的是原来的 JS 脚本而非我修改的那个的话，还需要按照上面的地址中的教程添加一些配置项，如果是用我修改的那个话就什么都不用做了。</p>
+<p>最后，我们需要修改<code>网站配置文件</code>，加入以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">moon_menu</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">zh</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">icon</span><span class="p">:</span><span class="w"> </span>fas<span class="w"> </span>fa-atlas<span class="w">
+</span><span class="w">    </span><span class="k">func</span><span class="p">:</span><span class="w"> </span>translatePage<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>这样，简繁切换菜单就添加完成了。如果你不想要在页脚显示的话还需要修改一下 JS 脚本，去掉里面关于更改文字的代码。</p>
+<h2 id="夜间模式">夜间模式</h2>
+<p>NexT 主题是自带了夜间模式支持的，但是只支持根据系统的夜间模式与否来切换，并不是很方便，于是我打算自己写一个来代替原来的夜间模式，实现根据系统的夜间模式和时间自动切换，同时支持使用 hexo-cake-moon-menu 手动切换。</p>
+<p>首先，我们需要知道 NexT 主题自带的夜间模式是怎么实现的，我们可以在<code>/theme/next/source/css/_colors.styl</code>中找到以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+  <span class="nv">--body-bg-color</span><span class="p">:</span> <span class="err">$</span><span class="n">body-bg-color</span><span class="p">;</span>
+  <span class="nv">--content-bg-color</span><span class="p">:</span> <span class="err">$</span><span class="k">content</span><span class="o">-</span><span class="n">bg-color</span><span class="p">;</span>
+  <span class="nv">--card-bg-color</span><span class="p">:</span> <span class="err">$</span><span class="n">card-bg-color</span><span class="p">;</span>
+  <span class="nv">--text-color</span><span class="p">:</span> <span class="err">$</span><span class="kc">text</span><span class="o">-</span><span class="kc">color</span><span class="p">;</span>
+  <span class="err">...</span>
+<span class="p">}</span>
+
+<span class="nt">if</span> <span class="o">(</span><span class="nt">hexo-config</span><span class="o">(</span><span class="s1">&#39;darkmode&#39;</span><span class="o">))</span> <span class="p">{</span>
+  <span class="err">@media</span> <span class="err">(</span><span class="n">prefers-color-scheme</span><span class="p">:</span> <span class="n">dark</span><span class="p">)</span> <span class="err">{</span>
+    <span class="o">:</span><span class="n">root</span> <span class="err">{</span>
+      <span class="o">--</span><span class="n">body-bg-color</span><span class="o">:</span> <span class="err">$</span><span class="n">body-bg-color-dark</span><span class="p">;</span>
+      <span class="nv">--content-bg-color</span><span class="p">:</span> <span class="err">$</span><span class="k">content</span><span class="o">-</span><span class="n">bg-color-dark</span><span class="p">;</span>
+      <span class="nv">--card-bg-color</span><span class="p">:</span> <span class="err">$</span><span class="n">card-bg-color-dark</span><span class="p">;</span>
+      <span class="nv">--text-color</span><span class="p">:</span> <span class="err">$</span><span class="kc">text</span><span class="o">-</span><span class="kc">color</span><span class="o">-</span><span class="n">dark</span><span class="p">;</span>
+      <span class="err">...</span>
+    <span class="p">}</span>
+
+    <span class="nt">img</span> <span class="p">{</span>
+      <span class="k">opacity</span><span class="p">:</span> <span class="mf">.75</span><span class="p">;</span>
+
+      <span class="err">&amp;:hover</span> <span class="err">{</span>
+        <span class="k">opacity</span><span class="p">:</span> <span class="mf">.9</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的 CSS 代码使用了<code>:root</code>选择器<code>@media</code>查询，当浏览器配置为<code>prefers-color-scheme: dark</code>时便会设置为夜间模式的配色，并且设置图片透明度增加，不过需要注意的是，我们并不能直接使用上面的代码，因为后面对应的并非颜色，而是变量，会在渲染时替换为颜色，我们可以在<code>/theme/next/source/css/_variables/base.styl</code>中找到变量对应的颜色，不过手动替换太麻烦了，我选择在<code>主题配置文件</code>中设置<code>darkmode: true</code>，运行<code>hexo g</code>生成静态文件，然后在<code>/public/css/main.css</code>中找到需要的 CSS 代码，得到的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+  <span class="nv">--body-bg-color</span><span class="p">:</span> <span class="mh">#282828</span><span class="p">;</span>
+  <span class="nv">--content-bg-color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+  <span class="nv">--card-bg-color</span><span class="p">:</span> <span class="mh">#555</span><span class="p">;</span>
+  <span class="nv">--text-color</span><span class="p">:</span> <span class="mh">#ccc</span><span class="p">;</span>
+  <span class="nv">--blockquote-color</span><span class="p">:</span> <span class="mh">#bbb</span><span class="p">;</span>
+  <span class="nv">--link-color</span><span class="p">:</span> <span class="mh">#ccc</span><span class="p">;</span>
+  <span class="nv">--link-hover-color</span><span class="p">:</span> <span class="mh">#eee</span><span class="p">;</span>
+  <span class="nv">--brand-color</span><span class="p">:</span> <span class="mh">#ddd</span><span class="p">;</span>
+  <span class="nv">--brand-hover-color</span><span class="p">:</span> <span class="mh">#ddd</span><span class="p">;</span>
+  <span class="nv">--table-row-odd-bg-color</span><span class="p">:</span> <span class="mh">#282828</span><span class="p">;</span>
+  <span class="nv">--table-row-hover-bg-color</span><span class="p">:</span> <span class="mh">#363636</span><span class="p">;</span>
+  <span class="nv">--menu-item-bg-color</span><span class="p">:</span> <span class="mh">#555</span><span class="p">;</span>
+  <span class="nv">--btn-default-bg</span><span class="p">:</span> <span class="mh">#222</span><span class="p">;</span>
+  <span class="nv">--btn-default-color</span><span class="p">:</span> <span class="mh">#ccc</span><span class="p">;</span>
+  <span class="nv">--btn-default-border-color</span><span class="p">:</span> <span class="mh">#555</span><span class="p">;</span>
+  <span class="nv">--btn-default-hover-bg</span><span class="p">:</span> <span class="mh">#666</span><span class="p">;</span>
+  <span class="nv">--btn-default-hover-color</span><span class="p">:</span> <span class="mh">#ccc</span><span class="p">;</span>
+  <span class="nv">--btn-default-hover-border-color</span><span class="p">:</span> <span class="mh">#666</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">img</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">img</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们把上面的代码保存在<code>/source/css/dark.css</code>中备用。</p>
+<p>下面我们要做的就是让网站在合适的情况下加载<code>dark.css</code>，我参考了 <a href="https://qqdie.com/archives/night-mode-of-website.html" target="_blank" rel="noopener noreffer">网站夜间模式的实现</a> 这篇文章，这篇文章是用于动态网站的，不过大同小异，思路都是一致的。</p>
+<p>首先，我们要编辑<code>主题配置文件</code>，把下面这行反注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">head</span><span class="p">:</span><span class="w"> </span>source/_data/head.swig<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>然后新建<code>/source/_data/head.swig</code>文件，写入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/css/dark.css&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;dark&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/darkmode.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面两行表示引入了<code>/css/dark.css</code>和<code>/js/darkmode.js</code>，注意第一行的<code>rel</code>属性为<code>alternate stylesheet</code>，表示将<code>/css/dark.css</code>作为备用 CSS ，默认并不启用。还有要注意的是，这两行的内容不能调换，必须先引入 CSS 再引入 JS ，因为 JS 是对 CSS 进行操作的，如果先引入 JS 的话，它就没有可操作的对象了。</p>
+<p>还要，之所以我们把这两行写入了<code>head.swig</code>而非像简繁转换一样写入<code>footer.swig</code>，是因为简繁转换可以在页面其他部分加载完后再运行，而夜间模式则应该在页面加载前就运行了，否则会导致页面加载过程中一直是亮色的，页面加载完成后才变为夜间模式。</p>
+<p>然后我们就可以开始编写 JS 脚本了。</p>
+<p>首先我们来实现手动切换部分。我们可以使用以下代码来启用或禁用<code>dark.css</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//启用夜间模式
+</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//关闭夜间模式
+</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后我们可以写一个函数实现切换功能：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kd">function</span> <span class="nx">switchDarkMode</span><span class="p">(){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">night</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;dark=0;path=/&#34;</span>
+        <span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>但是上面的函数有一个问题，那就是只能在一个页面生效，当读者刷新了页面或这访问了其他的页面后就又会恢复为亮色模式了。那么有什么办法能够在整个网站中传递信息呢，很简单，那就是 cookie 。我们可以通过设置 cookie 来实现对整个网站设置夜间模式，修改后的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">switchDarkMode</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/</span><span class="p">,</span> <span class="s2">&#34;$1&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;0&#39;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">night</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;dark=1;path=/&#34;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;dark=0;path=/&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>函数内的第一行表示读取 cookie 并使用正则表达式取出名称为<code>dark</code>的 cookie 的值，如果没有设置 cookie 那么就设置<code>night</code>变量为<code>'0'</code>，之后，在每次运行函数后设置对应的 cookie 。</p>
+<p>最后我们就可以编辑<code>网站配置文件</code>给 hexo-cake-moon-menu 添加配置项：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">moon_menu</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">dark</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">icon</span><span class="p">:</span><span class="w"> </span>fas<span class="w"> </span>fa-adjust<span class="w">
+</span><span class="w">    </span><span class="k">func</span><span class="p">:</span><span class="w"> </span>switchDarkMode<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>这样手动切换功能就完成了，下面我们来继续完成自动切换部分。</p>
+<p>首先，手动切换的优先级肯定是要高于自动切换的，那么我们就要首先判断是否定义了 cookie ，如果定义了就使用定义的，没定义就判断时间和系统情况。注意，由于我们在上面设置 cookie 时没有设置持续时间，cookie 是会在浏览器会话结束后自动清除的。代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/</span><span class="p">,</span> <span class="s2">&#34;$1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+    <span class="c1">//判断时间和系统情况
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/</span><span class="p">,</span> <span class="s2">&#34;$1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后，我们来编写判断时间和系统情况的代码，时间好说，那系统夜间模式开启情况呢？实际上我们并没有办法使用 JS 直接获取到这一信息，但是我们可以使用 CSS 获取后间接传递给 JS 。</p>
+<p>首先反注释主题配置文件中的<code>style: source/_data/styles.styl</code>并新建<code>/source/_data/styles.styl</code>，写入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">html</span> <span class="p">{</span>
+  <span class="k">content</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="c">/* Light mode */</span>
+<span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">light</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nt">html</span> <span class="p">{</span>
+      <span class="k">content</span><span class="p">:</span> <span class="s2">&#34;light&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c">/* Dark mode */</span>
+<span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">dark</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nt">html</span> <span class="p">{</span>
+      <span class="k">content</span><span class="p">:</span> <span class="s2">&#34;dark&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的代码会在渲染静态页面时插入到<code>/css/main.css</code>中，它会使用<code>@media</code>判断系统的<code>prefers-color-scheme</code>并设置 html 的<code>content</code>属性，<code>content</code>属性有一些特殊用法，但这里我们没有用到，可以姑且认为<code>content</code>属性在这里不会对页面的显示样式产生任何影响，只是起到了传递信息的作用，我们可以使用 JS 读出这一属性并保存为常量，代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">mode</span> <span class="o">=</span> <span class="nx">getComputedStyle</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最后完整的<code>dark.js</code>代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">mode</span> <span class="o">=</span> <span class="nx">getComputedStyle</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/</span><span class="p">,</span> <span class="s2">&#34;$1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">mode</span> <span class="o">==</span> <span class="s1">&#39;&#34;dark&#34;&#39;</span> <span class="o">||</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">22</span> <span class="o">||</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/</span><span class="p">,</span> <span class="s2">&#34;$1&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">switchDarkMode</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/</span><span class="p">,</span> <span class="s2">&#34;$1&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;0&#39;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">night</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;dark=1;path=/&#34;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;link[title=&#34;dark&#34;]&#39;</span><span class="p">).</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">&#34;dark=0;path=/&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样夜间模式就完成了！</p>
+<h2 id="一言">一言</h2>
+<p><a href="https://hitokoto.cn/" target="_blank" rel="noopener noreffer">一言（hitokoto.cn）</a>是一个分享一句话的平台，提供了一个很方便的 API 来进行访问，我设置了在我的网站首页显示一言，你可以在我的网站首页的侧边栏中查看实现效果。</p>
+<p>添加一言相对来说比较简单，官方不仅提供了 API 还提供了示例代码，可以访问<a href="https://developer.hitokoto.cn/" target="_blank" rel="noopener noreffer">一言开发者中心</a>查看详情。但官方的示例只获取了句子内容，我稍微修改了以下，让它也同时获取句子来源。</p>
+<p>接下来我们需要自定义侧边栏，和上面一样，还是反注释<code>主题配置文件</code>中的<code>sidebar: source/_data/sidebar.swig</code>并新建<code>/source/_data/head.swig</code>文件。</p>
+<p>一言部分我直接使用了和友情链接（blogroll）相同的样式，代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;links-of-blogroll motion-element&#34;</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;links-of-blogroll-title&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;hitotitle&#34;</span><span class="p">&gt;</span>
+		<span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fa fa-paragraph&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+		<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>一言<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+	<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;hitokoto&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;padding: 0; margin: 0;&#34;</span><span class="p">&gt;</span>:D 获取中...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;hitofrom&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;font-style: italic; text-align: right; padding: 0; margin: 0;&#34;</span><span class="p">&gt;</span>:D 获取中...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">isHome</span><span class="p">){</span>
+			<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://v1.hitokoto.cn&#39;</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+			<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+				<span class="kr">const</span> <span class="nx">hitokoto</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitokoto&#39;</span><span class="p">)</span>
+				<span class="kr">const</span> <span class="nx">hitofrom</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitofrom&#39;</span><span class="p">)</span>
+				<span class="nx">hitokoto</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">hitokoto</span>
+				<span class="nx">hitofrom</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">&#39;——&#39;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">from</span>
+			<span class="p">})</span>
+			<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+		<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+			<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitokoto&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">;</span>
+			<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitofrom&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">;</span>
+			<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitotitle&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我设置为了仅在博客的首页显示，如果你需要在博客所有页面都显示的话可以将<code>&lt;script&gt;</code>部分更换为以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">	<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://v1.hitokoto.cn&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="kr">const</span> <span class="nx">hitokoto</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitokoto&#39;</span><span class="p">)</span>
+            <span class="kr">const</span> <span class="nx">hitofrom</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;hitofrom&#39;</span><span class="p">)</span>
+            <span class="nx">hitokoto</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">hitokoto</span>
+            <span class="nx">hitofrom</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">&#39;——&#39;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">from</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+	<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="最后">最后</h2>
+<p>你可能发现我的博客样式几乎就是 NexT 的 Gemini 主题的默认样式，并没有做什么更改。是的，我没有添加华丽的鼠标特效或是live2D的二次元看板娘，没有设置好听的背景音乐和特别的背景特效，甚至于连背景图片和字体都没有换。其实这都是因为我非常喜欢简约的风格，我认为博客最重要的是其内容，而主题的作用就是突出内容和帮助呈现内容，如果太过华丽就喧宾夺主了。我一直认为，最好的科技应该让人们察觉不到其存在，好的设计应该让人用起来很舒服，一切都是自然而然的，就像使用自己的四肢一样自然。</p>
+<p>其实如果你细心观察的话，这个博客还是有一些自定义配置的，比如上面提到的简繁转换、夜间模式和首页的一言，还有 NexT 提供的网页顶部的阅读进度条、右上角会自动保存也能手动设置的书签、文章标题旁边的页面 Markdown 源码入口、点击图片后弹出的 FancyBox、延迟加载图片和自动缓存接下来的页面，以及由各种插件提供的右下角显示阅读进度百分比的悬浮菜单、侧边栏中的搜索功能、文章标题下面的字数统计和阅读时长、文章底部的 Gitalk 的评论。它们都是些不起眼的小功能，但都确确实实地方便了博客的浏览，这才是我需要的博客个性化配置。</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-04-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/hexo-next-theme-customization/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://st1020.top/hexo-next-theme-customization/" data-title="Hexo-NexT 主题个性化定制" data-hashtags="Hexo,Blog"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://st1020.top/hexo-next-theme-customization/" data-hashtag="Hexo"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://st1020.top/hexo-next-theme-customization/" data-title="Hexo-NexT 主题个性化定制" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://st1020.top/hexo-next-theme-customization/" data-title="Hexo-NexT 主题个性化定制"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://st1020.top/hexo-next-theme-customization/" data-title="Hexo-NexT 主题个性化定制"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://st1020.top/hexo-next-theme-customization/" data-title="Hexo-NexT 主题个性化定制"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hexo/">Hexo</a>,&nbsp;<a href="/tags/blog/">Blog</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/arch-install/" class="prev" rel="prev" title="Arch Linux 安装记录"><i class="fas fa-angle-left fa-fw"></i>Arch Linux 安装记录</a>
+            <a href="/powered-by-hugo/" class="next" rel="next" title="Powered by Hugo">Powered by Hugo<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://st1020.top/" target="_blank">st1020</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank">CC BY-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{"gitalk":{"admin":["st1020"],"clientID":"eb330b23717cd7555155","clientSecret":"e8b919f17c3d0a42853584eb95866e28779d3426","id":"2020-04-09T10:32:14+08:00","owner":"st1020","repo":"BlogComment","title":"Hexo-NexT 主题个性化定制"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

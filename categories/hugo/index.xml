@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Hugo - 分类 - 石头的杂货铺</title>
+        <link>https://st1020.top/categories/hugo/</link>
+        <description>Hugo - 分类 - 石头的杂货铺</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>stone_1020@qq.com (st1020)</managingEditor>
+            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Wed, 15 Jul 2020 21:56:46 &#43;0800</lastBuildDate><atom:link href="https://st1020.top/categories/hugo/" rel="self" type="application/rss+xml" /><item>
+    <title>Powered by Hugo</title>
+    <link>https://st1020.top/powered-by-hugo/</link>
+    <pubDate>Wed, 15 Jul 2020 21:56:46 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://st1020.top/powered-by-hugo/</guid>
+    <description><![CDATA[由于各种原因，已经很久没有更新博客了&hellip;鸽子真快乐。总之，从今天起，本博客正式迁移至 Hugo！ 其实在开始建立这个博客的时候我就已]]></description>
+</item></channel>
+</rss>

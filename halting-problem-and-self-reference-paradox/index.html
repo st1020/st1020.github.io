@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>关于停机问题与自指性悖论 - 石头的杂货铺</title><meta name="Description" content="St1020的博客"><meta property="og:title" content="关于停机问题与自指性悖论" />
+<meta property="og:description" content="停机问题是是逻辑数学中可计算性理论的一个很经典的问题，该问题内容为：是否存在一个程序H，对于任意输入的程序P，能够判断P会在有限时间内结束或" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://st1020.top/halting-problem-and-self-reference-paradox/" />
+<meta property="og:image" content="https://st1020.top/logo.png"/>
+<meta property="article:published_time" content="2020-07-21T09:56:48+08:00" />
+<meta property="article:modified_time" content="2020-07-21T09:56:48+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://st1020.top/logo.png"/>
+
+<meta name="twitter:title" content="关于停机问题与自指性悖论"/>
+<meta name="twitter:description" content="停机问题是是逻辑数学中可计算性理论的一个很经典的问题，该问题内容为：是否存在一个程序H，对于任意输入的程序P，能够判断P会在有限时间内结束或"/>
+<meta name="application-name" content="石头的杂货铺">
+<meta name="apple-mobile-web-app-title" content="石头的杂货铺"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://st1020.top/halting-problem-and-self-reference-paradox/" /><link rel="prev" href="https://st1020.top/powered-by-hugo/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "关于停机问题与自指性悖论",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/st1020.top\/halting-problem-and-self-reference-paradox\/"
+        },"genre": "posts","keywords": "逻辑, 计算机, 悖论","wordcount":  1730 ,
+        "url": "https:\/\/st1020.top\/halting-problem-and-self-reference-paradox\/","datePublished": "2020-07-21T09:56:48+08:00","dateModified": "2020-07-21T09:56:48+08:00","publisher": {
+            "@type": "Organization",
+            "name": "st1020","logo": "https:\/\/st1020.top\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "st1020"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="石头的杂货铺"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.svg"
+        data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+        data-sizes="auto"
+        alt="/logo.svg"
+        title="/logo.svg" />石头的杂货铺</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="石头的杂货铺"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.svg"
+        data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+        data-sizes="auto"
+        alt="/logo.svg"
+        title="/logo.svg" />石头的杂货铺</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">关于停机问题与自指性悖论</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://st1020.top/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>st1020</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><i class="far fa-folder fa-fw"></i>计算机</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-21">2020-07-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1730 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>停机问题是是逻辑数学中可计算性理论的一个很经典的问题，该问题内容为：是否存在一个程序H，对于任意输入的程序P，能够判断P会在有限时间内结束或者死循环。</p>
+<p>答案是否定的，证明如下：</p>
+<p>假设停机问题有解，即存在一个程序能够判断程序P在输入I的情况下是否可停机（即是否会进入死循环）。我们假设该程序为高阶函数（Higher-order function）<code>H</code>，即：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">H</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>若函数<code>P</code>不会进入死循环，则<code>H</code>返回<code>True</code>，否则返回<code>False</code>。</p>
+<p>然后我们定义另一个函数<code>U</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">U</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">H</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也就是说当<code>H</code>判断<code>P(P)</code>会停机时，<code>U</code>就进入死循环，否则正常返回。</p>
+<p>注意，因为在计算机当中所谓函数也是一串数据，所以将自身作为输入输入自身是完全没有问题的。</p>
+<p>那么，当<code>U</code>输入<code>U</code>，也就是<code>U(U)</code>会不会停机呢？既然<code>H</code>能够判断任何程序是否会停机，那么应该也能回答这个问题，也就是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">H</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>那么问题就来了，如果<code>H</code>认为<code>U(U)</code>会停机，即<code>H(U, U)</code>返回<code>True</code>，那么实际上<code>U(U)</code>就会进入死循环，并不会停机。如果<code>H</code>认为<code>U(U)</code>不会停机，即<code>H(U, U)</code>返回<code>False</code>，那么实际上<code>U(U)</code>就会进入死循环，并不会停机。这就推出了矛盾，也就是说<code>H</code>并不能永远给出停机问题的准确答案。</p>
+<p>由此可以证明，不存在能够判断任意程序在特定输入下是否会在有限时间内停机的程序，停机问题无解。</p>
+<p>于此类似的还有“理发师悖论”：一位理发师的原则是当且仅当一个人不为自己理发时他为其理发，那么这位理发师能为自己理发吗？这里“理发师悖论”实际上是罗素悖论的一个比喻，也即：对于集合$A=\{x \mid x \notin x\}$判断$A \in A$是否成立。</p>
+<p>这个悖论的根本性问题为集合的自指，所以我们只要拒绝集合的自指即可解决该问题，也就是认为不存在像$\{x \mid x \notin x\}$的集合。</p>
+<p>同样，对于停机问题我们也可以有类似的解释，产生悖论的原因正是这个能够判断其他程序是否能停机的程序也是一个程序，那么当它判断涉及自己的程序时就可能会产生悖论，最终证明一个程序不可能判断其他所有程序是否停机。</p>
+<p>类似的还有“全能悖论”：上帝全知全能，那么祂能创造一个自己搬不起来的石头吗？如果能，那么说明其在力量方面并非全能，如果不能，说明其在创造方面并非全能。这同样是因为自指导致的悖论，当我们将上帝的全能性作用于其本身时就会导致悖论，从而说明全能的上帝是不存在的。</p>
+<p>此外还有一个最常见的悖论——“说谎者悖论”：“这个语句为假”是否为真。对此有许多解释，比如曾有人提出应拒绝与排中律有关的二值原理，也就是拒绝“所有语句要么为真要么为假”的主张，认为其非真非假。但是，对于另一个问题：“这个语句不为真”是否为真，也同样无法解决，类似的主张如认为其又真又假也存在无法回答的问题，即”这个语句只为假“是否为真。对此的解决比较好的有Arthur Prior提出的观点：语句都包含对自己真值的隐含断言，即“一加一等于二”隐含了“一加一等于二为真”的真值断言，任何一句话“A”都可以改写为“A且这句话为真”，那么同样，“这句话为假”等价与“这句话为真且这句话为假”，而这句话本身就包含了矛盾，就像“这个东西是苹果且这个东西不是苹果”一样，所以说谎者悖论实质上是由一个一开始就含有矛盾的假语句而推导出的另一个矛盾，并不是一个悖论。不过我认为这实质上是从语言上回避了这个这个问题，是因为自然语言的不严谨导致的，并无法用来解释罗素悖论等其他涉及自指的悖论。</p>
+<p>除此之外还有很多涉及自指的悖论，比如著名的哥德尔不完备性定理：任何<a href="https://zh.wikipedia.org/wiki/%e4%b8%80%e8%87%b4%e6%80%a7_%28%e9%80%bb%e8%be%91%29" target="_blank" rel="noopener noreffer">兼容</a>的<a href="https://zh.wikipedia.org/wiki/%e5%bd%a2%e5%bc%8f%e7%b3%bb%e7%b5%b1" target="_blank" rel="noopener noreffer">形式系统</a>，只要蕴涵<a href="https://zh.wikipedia.org/wiki/%e7%9a%ae%e4%ba%9a%e8%af%ba%e7%ae%97%e6%9c%af%e5%85%ac%e7%90%86" target="_blank" rel="noopener noreffer">皮亚诺算术公理</a>，就是不完备的并且不能用于证明它本身的兼容性。它的证明过程同样是在体系内部构造自指性悖论。实际上，停机问题、罗素悖论（理发师悖论）、全能悖论、哥德尔不完备性定理等悖论的实质都是是<a href="https://zh.wikipedia.org/wiki/%e4%b8%80%e9%98%b6%e9%80%bb%e8%be%91" target="_blank" rel="noopener noreffer">一阶逻辑</a>的不完备性。</p>
+<p>我们平常看似严谨且精确的逻辑体系与数学体系也并非是完美的，我并不知道是否像大卫‧希尔伯特在1920年代提出的希尔伯特计划所希望的一样，存在一种完全严谨、完备、兼容的逻辑体系，如果存在又是否能够被人类的理性所认识，以及其是否还是“逻辑”，但我相信人类对于任何事物的认识都是不断深入的，逻辑学也是如此，“我们必须知道，我们必将知道”，即使结果可能并非完美。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-07-21</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/halting-problem-and-self-reference-paradox/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://st1020.top/halting-problem-and-self-reference-paradox/" data-title="关于停机问题与自指性悖论" data-hashtags="逻辑,计算机,悖论"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://st1020.top/halting-problem-and-self-reference-paradox/" data-hashtag="逻辑"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://st1020.top/halting-problem-and-self-reference-paradox/" data-title="关于停机问题与自指性悖论" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://st1020.top/halting-problem-and-self-reference-paradox/" data-title="关于停机问题与自指性悖论"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://st1020.top/halting-problem-and-self-reference-paradox/" data-title="关于停机问题与自指性悖论"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://st1020.top/halting-problem-and-self-reference-paradox/" data-title="关于停机问题与自指性悖论"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%80%BB%E8%BE%91/">逻辑</a>,&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>,&nbsp;<a href="/tags/%E6%82%96%E8%AE%BA/">悖论</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/powered-by-hugo/" class="prev" rel="prev" title="Powered by Hugo"><i class="fas fa-angle-left fa-fw"></i>Powered by Hugo</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://st1020.top/" target="_blank">st1020</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank">CC BY-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{"gitalk":{"admin":["st1020"],"clientID":"eb330b23717cd7555155","clientSecret":"e8b919f17c3d0a42853584eb95866e28779d3426","id":"2020-07-21T09:56:48+08:00","owner":"st1020","repo":"BlogComment","title":"关于停机问题与自指性悖论"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
