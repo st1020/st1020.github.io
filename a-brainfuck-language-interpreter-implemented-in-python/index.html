@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Python 实现的 Brainfuck 语言解析器 - 石头的杂货铺</title><meta name="Description" content="St1020的博客"><meta property="og:title" content="Python 实现的 Brainfuck 语言解析器" />
+<meta property="og:description" content="BrainFuck
+BrainFuck 语言是一种深奥的编程语言（Esoteric programming language， Esolang），由 Urban Müller 于1993年创造。目的是为了创造一个简单的、最小的、符合图灵完全的编程语言。正如它的名字，BrainFuck 因为对人类极度不友好而广为人知。但是作为一种图灵完备的编程语言，理论上任何其他编程语言能够实现的程序都可以由 BrainFuck 实现。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" />
+<meta property="og:image" content="https://st1020.top/logo.png"/>
+<meta property="article:published_time" content="2020-09-14T19:58:28+08:00" />
+<meta property="article:modified_time" content="2020-09-14T19:58:28+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://st1020.top/logo.png"/>
+
+<meta name="twitter:title" content="Python 实现的 Brainfuck 语言解析器"/>
+<meta name="twitter:description" content="BrainFuck
+BrainFuck 语言是一种深奥的编程语言（Esoteric programming language， Esolang），由 Urban Müller 于1993年创造。目的是为了创造一个简单的、最小的、符合图灵完全的编程语言。正如它的名字，BrainFuck 因为对人类极度不友好而广为人知。但是作为一种图灵完备的编程语言，理论上任何其他编程语言能够实现的程序都可以由 BrainFuck 实现。"/>
+<meta name="application-name" content="石头的杂货铺">
+<meta name="apple-mobile-web-app-title" content="石头的杂货铺"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" /><link rel="prev" href="https://st1020.top/halting-problem-and-self-reference-paradox/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Python 实现的 Brainfuck 语言解析器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/st1020.top\/a-brainfuck-language-interpreter-implemented-in-python\/"
+        },"genre": "posts","keywords": "Python, Esolang","wordcount":  2198 ,
+        "url": "https:\/\/st1020.top\/a-brainfuck-language-interpreter-implemented-in-python\/","datePublished": "2020-09-14T19:58:28+08:00","dateModified": "2020-09-14T19:58:28+08:00","publisher": {
+            "@type": "Organization",
+            "name": "st1020","logo": "https:\/\/st1020.top\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "st1020"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="石头的杂货铺"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.svg"
+        data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+        data-sizes="auto"
+        alt="/logo.svg"
+        title="/logo.svg" />石头的杂货铺</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="石头的杂货铺"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.svg"
+        data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+        data-sizes="auto"
+        alt="/logo.svg"
+        title="/logo.svg" />石头的杂货铺</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Python 实现的 Brainfuck 语言解析器</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://st1020.top/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>st1020</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><i class="far fa-folder fa-fw"></i>计算机</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-14">2020-09-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2198 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#brainfuck">BrainFuck</a>
+      <ul>
+        <li><a href="#代码实例">代码实例</a>
+          <ul>
+            <li><a href="#目前位置归零">目前位置归零</a></li>
+            <li><a href="#字符输入输出">字符输入输出</a></li>
+            <li><a href="#小写字符转化为大写">小写字符转化为大写</a></li>
+            <li><a href="#hello-world">Hello World!</a></li>
+            <li><a href="#加法器">加法器</a></li>
+            <li><a href="#乘法器">乘法器</a></li>
+          </ul>
+        </li>
+        <li><a href="#代码分析">代码分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#python实现">Python实现</a></li>
+    <li><a href="#彩蛋">彩蛋</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="brainfuck">BrainFuck</h2>
+<p>BrainFuck 语言是一种深奥的编程语言（Esoteric programming language， Esolang），由 Urban Müller 于1993年创造。目的是为了创造一个简单的、最小的、符合图灵完全的编程语言。正如它的名字，BrainFuck 因为对人类极度不友好而广为人知。但是作为一种图灵完备的编程语言，理论上任何其他编程语言能够实现的程序都可以由 BrainFuck 实现。</p>
+<p>BrainFuck 基于一种简单的机器模型，这个机器包括八种指令，一个以字节（0-255）为单位、初始全部为零的数组，一个初始时指向该数组中第一个字节的指针，以及用于输入输出的两个字节流。</p>
+<p>八种指令用字符表示如下：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt;</code></td>
+<td>指针前进一个字节</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>指针后退一个字节</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>指针指向的字节的值加一</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>指针指向的字节的值减一</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>输出指针指向的单元内容（根据ASCII码）</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>输出指针指向的单元内容（根据ASCII码）</td>
+</tr>
+<tr>
+<td><code>[</code></td>
+<td>如果指针指向的单元值为零，向后跳转到对应的<code>]</code>指令的次一指令处</td>
+</tr>
+<tr>
+<td><code>]</code></td>
+<td>如果指针指向的单元值不为零，向前跳转到对应的<code>[</code>指令的次一指令处</td>
+</tr>
+</tbody>
+</table>
+<p>注意，在对数组的字节进行加减时有两种特殊的规则：</p>
+<ol>
+<li>$0-1=255$</li>
+<li>$255+1=0$</li>
+</ol>
+<p>并且数组本身向前是无限的（或者说限制就是这种机器的内存），但并不能反向延伸，也就是说，初始时，指针只能向前移动而不能向后。</p>
+<p>我们可以仅仅根据以上的规则写一些简单的程序：</p>
+<h3 id="代码实例">代码实例</h3>
+<h4 id="目前位置归零">目前位置归零</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="c">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="字符输入输出">字符输入输出</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="nt">,.</span><span class="c">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="小写字符转化为大写">小写字符转化为大写</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="nt">,</span><span class="nb">----------</span><span class="k">[</span><span class="nb">----------------------</span><span class="nt">.,</span><span class="nb">----------</span><span class="k">]</span><span class="c">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="hello-world">Hello World!</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="nb">++++++++++</span><span class="k">[</span><span class="nv">&gt;</span><span class="nb">+++++++</span><span class="nv">&gt;</span><span class="nb">++++++++++</span><span class="nv">&gt;</span><span class="nb">+++</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;&lt;&lt;&lt;</span><span class="nb">-</span><span class="k">]</span><span class="nv">&gt;</span><span class="nb">++</span><span class="nt">.</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nt">.</span><span class="nb">+++++++</span><span class="nt">..</span><span class="nb">+++</span><span class="nt">.</span><span class="nv">&gt;</span><span class="nb">++</span><span class="nt">.</span><span class="nv">&lt;&lt;</span><span class="nb">+++++++++++++++</span><span class="nt">.</span><span class="nv">&gt;</span><span class="nt">.</span><span class="nb">+++</span><span class="nt">.</span><span class="nb">------</span><span class="nt">.</span><span class="nb">--------</span><span class="nt">.</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nt">.</span><span class="nv">&gt;</span><span class="nt">.</span><span class="c">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="加法器">加法器</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="nv">&gt;&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="nv">&lt;&lt;&lt;</span><span class="c">        // clear cell #2 and #3
+</span><span class="c"></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;&gt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;&lt;&lt;</span><span class="k">]</span><span class="c">         // transfer cell #0 to #2 and #3
+</span><span class="c"></span><span class="nv">&gt;</span><span class="c">
+</span><span class="c">    </span><span class="nv">&gt;&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;&lt;&lt;</span><span class="nb">+</span><span class="nv">&gt;&gt;&gt;</span><span class="k">]</span><span class="nv">&lt;&lt;</span><span class="c">  // transfer cell #3 to #0
+</span><span class="c">    </span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;&lt;</span><span class="k">]</span><span class="c">       // transfer cell #1 to #2 and #3
+</span><span class="c">    </span><span class="nv">&gt;&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;&lt;</span><span class="nb">+</span><span class="nv">&gt;&gt;</span><span class="k">]</span><span class="nv">&lt;&lt;</span><span class="c">    // transfer cell #3 to #1
+</span><span class="c"></span><span class="nv">&lt;</span><span class="c">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="乘法器">乘法器</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="nv">&gt;&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]</span><span class="nv">&lt;&lt;&lt;&lt;</span><span class="c">       // clear cell #2 and #3 and #4
+</span><span class="c"></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="c">
+</span><span class="c">    </span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;&lt;</span><span class="k">]</span><span class="c">           // add cell #1 to #2 and #3
+</span><span class="c">    </span><span class="nv">&gt;&gt;</span><span class="c">
+</span><span class="c">        </span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;&lt;</span><span class="nb">+</span><span class="nv">&gt;&gt;</span><span class="k">]</span><span class="c">        // move cell #3 back to #1
+</span><span class="c">        </span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="c">             // copy cell #0 to #4
+</span><span class="c">    </span><span class="nv">&lt;&lt;</span><span class="c">
+</span><span class="c"></span><span class="nv">&lt;</span><span class="k">]</span><span class="c">
+</span><span class="c"></span><span class="nv">&gt;&gt;&gt;&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;&lt;&lt;&lt;</span><span class="nb">+</span><span class="nv">&gt;&gt;&gt;&gt;</span><span class="k">]</span><span class="nv">&lt;&lt;&lt;&lt;</span><span class="c">    // move cell #4 back to #0
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="代码分析">代码分析</h3>
+<p>下面以 Hello World! 程序为例分析一下 BrainFuck 程序的运行过程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Brainfuck" data-lang="Brainfuck"><span class="nb">++++++++++</span><span class="c">              将0号字节（第一个字节，以下简称#0）加到10
+</span><span class="c"></span><span class="k">[</span><span class="c">                       开始循环
+</span><span class="c">    </span><span class="nv">&gt;</span><span class="nb">+++++++</span><span class="c">                #1加到7
+</span><span class="c">    </span><span class="nv">&gt;</span><span class="nb">++++++++++</span><span class="c">             #2加到10
+</span><span class="c">    </span><span class="nv">&gt;</span><span class="nb">+++</span><span class="c">                    #3加到3
+</span><span class="c">    </span><span class="nv">&gt;</span><span class="nb">+</span><span class="c">                      #4加到1
+</span><span class="c">    </span><span class="nv">&lt;&lt;&lt;&lt;</span><span class="nb">-</span><span class="c">                   返回#0并减1
+</span><span class="c"></span><span class="k">]</span><span class="c">                       由于此时指针位于#0，所以当#0减至0时就退出循环
+</span><span class="c">                        循环共运行10次，至此数组的内容为：0/70/100/30/10
+</span><span class="c"></span><span class="nv">&gt;</span><span class="nb">++</span><span class="nt">.</span><span class="c">                    进入#1，加2，此时#1为72，输出 &#39;H&#39;，以下同理
+</span><span class="c"></span><span class="nv">&gt;</span><span class="nb">+</span><span class="nt">.</span><span class="c">                     输出 &#39;e&#39;
+</span><span class="c"></span><span class="nb">+++++++</span><span class="nt">.</span><span class="c">                输出 &#39;l&#39;
+</span><span class="c"></span><span class="nt">.</span><span class="c">                       输出 &#39;l&#39;
+</span><span class="c"></span><span class="nb">+++</span><span class="nt">.</span><span class="c">                    输出 &#39;o&#39;
+</span><span class="c"></span><span class="nv">&gt;</span><span class="nb">++</span><span class="nt">.</span><span class="c">                    输出 &#39; &#39;
+</span><span class="c"></span><span class="nv">&lt;&lt;</span><span class="nb">+++++++++++++++</span><span class="nt">.</span><span class="c">      输出 &#39;W&#39;
+</span><span class="c"></span><span class="nv">&gt;</span><span class="nt">.</span><span class="c">                      输出 &#39;o&#39;
+</span><span class="c"></span><span class="nb">+++</span><span class="nt">.</span><span class="c">                    输出 &#39;r&#39;
+</span><span class="c"></span><span class="nb">------</span><span class="nt">.</span><span class="c">                 输出 &#39;l&#39;
+</span><span class="c"></span><span class="nb">--------</span><span class="nt">.</span><span class="c">               输出 &#39;d&#39;
+</span><span class="c"></span><span class="nv">&gt;</span><span class="nb">+</span><span class="nt">.</span><span class="c">                     输出 &#39;!&#39;
+</span><span class="c"></span><span class="nv">&gt;</span><span class="nt">.</span><span class="c">                      输出 &#39;\n&#39;
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="python实现">Python实现</h2>
+<p>我使用 Python 实现的 Brainfuck 解释器代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Python 实现的 Brainfuck 解释器</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;++++++++++[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.&#39;</span>
+<span class="n">test1</span> <span class="o">=</span> <span class="s1">&#39;,----------[----------------------.,----------]&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">bf_interpreter</span><span class="p">(</span><span class="n">bf_code</span><span class="p">):</span>
+    <span class="n">main_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">now_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">now_position</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">now_position</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bf_code</span><span class="p">):</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">bf_code</span><span class="p">[</span><span class="n">now_position</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">now_id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">print_error</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;内存错误，指针位于-1&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">now_id</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">:</span>
+            <span class="n">now_id</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">now_id</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">main_list</span><span class="p">):</span>
+                <span class="n">main_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">==</span> <span class="mi">256</span><span class="p">:</span>
+                <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;.&#39;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;,&#39;</span><span class="p">:</span>
+            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">input_chr</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入：&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_chr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">ord</span><span class="p">(</span><span class="n">input_chr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">128</span><span class="p">:</span>
+                        <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">input_chr</span><span class="p">)</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">print_error</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;输入错误，只能输入ASCII字符&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">print_error</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;输入错误，只能输入一个字符&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;[&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">now_position</span> <span class="o">=</span> <span class="n">bf_code</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="n">now_position</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">print_error</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;代码错误，缺失：]&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;]&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">main_list</span><span class="p">[</span><span class="n">now_id</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">now_position</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bf_code</span><span class="p">)</span> <span class="o">-</span> <span class="n">bf_code</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bf_code</span><span class="p">)</span> <span class="o">-</span> <span class="n">now_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">print_error</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;代码错误，缺失 [&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">print_error</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;无法解析的字符：&#39;</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
+        <span class="n">now_position</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">main_list</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">print_error</span><span class="p">(</span><span class="n">error_code</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">error_code</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">bf_interpreter</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>程序十分简单，主要就是使用一个<code>while</code>循环来执行 BrainFuck 代码的解析，并使用一个<code>list</code>来作为进行操作的数组。</p>
+<p>至于这个程序以及 Brainfuck 语言到底有什么用处，毕竟不会真的有人会拿它写代码的，实际上，这个问题就像哥德巴赫猜想有什么用一样，它确实并不会在我们的实际生活生产有任何应用，但是，黎曼在创建黎曼几何也不知道它能被应用到相对论的数学描述中，也许未来的某一天我们遇到了一个真的用 Brainfuck 编程的外星人呢，并且这确实很有趣，至少很酷，不是吗？</p>
+<p>当然，Brainfuck 并非是唯一一种 Esolang，也不是其中规则最简单或是最奇怪的，其实也不是最让人感到“Brainfuck”的，这世界上总有一群有趣的人设计出各种奇奇怪怪的语言。</p>
+<h2 id="彩蛋">彩蛋</h2>
+<p>最后，你想要做一个巧克力酱蛋糕吗？下面是菜谱，不保证口味哦～</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Hello World Cake with Chocolate sauce.
+
+This prints hello world, while being tastier than Hello World Souffle. The main
+chef makes a &#34; world!&#34; cake, which he puts in the baking dish. When he gets the
+sous chef to make the &#34;Hello&#34; chocolate sauce, it gets put into the baking dish
+and then the whole thing is printed when he refrigerates the sauce. When
+actually cooking, I&#39;m interpreting the chocolate sauce baking dish to be
+separate from the cake one and Liquify to mean either melt or blend depending on
+context.
+
+Ingredients.
+33 g chocolate chips
+100 g butter
+54 ml double cream
+2 pinches baking powder
+114 g sugar
+111 ml beaten eggs
+119 g flour
+32 g cocoa powder
+0 g cake mixture
+
+Cooking time: 25 minutes.
+
+Pre-heat oven to 180 degrees Celsius.
+
+Method.
+Put chocolate chips into the mixing bowl.
+Put butter into the mixing bowl.
+Put sugar into the mixing bowl.
+Put beaten eggs into the mixing bowl.
+Put flour into the mixing bowl.
+Put baking powder into the mixing bowl.
+Put cocoa  powder into the mixing bowl.
+Stir the mixing bowl for 1 minute.
+Combine double cream into the mixing bowl.
+Stir the mixing bowl for 4 minutes.
+Liquify the contents of the mixing bowl.
+Pour contents of the mixing bowl into the baking dish.
+bake the cake mixture.
+Wait until baked.
+Serve with chocolate sauce.
+
+chocolate sauce.
+
+Ingredients.
+111 g sugar
+108 ml hot water
+108 ml heated double cream
+101 g dark chocolate
+72 g milk chocolate
+
+Method.
+Clean the mixing bowl.
+Put sugar into the mixing bowl.
+Put hot water into the mixing bowl.
+Put heated double cream into the mixing bowl.
+dissolve the sugar.
+agitate the sugar until dissolved.
+Liquify the dark chocolate.
+Put dark chocolate into the mixing bowl.
+Liquify the milk chocolate.
+Put milk chocolate into the mixing bowl.
+Liquify contents of the mixing bowl.
+Pour contents of the mixing bowl into the baking dish.
+Refrigerate for 1 hour.
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考</h2>
+<p><a href="https://zh.wikipedia.org/wiki/Brainfuck" target="_blank" rel="noopener noreffer">Brainfuck - 维基百科</a></p>
+<p><a href="https://zh.wikipedia.org/zh-hans/%E6%B7%B1%E5%A5%A5%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener noreffer">深奥的编程语言 - 维基百科</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-09-14</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/a-brainfuck-language-interpreter-implemented-in-python/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" data-title="Python 实现的 Brainfuck 语言解析器" data-hashtags="Python,Esolang"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" data-title="Python 实现的 Brainfuck 语言解析器" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" data-title="Python 实现的 Brainfuck 语言解析器"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" data-title="Python 实现的 Brainfuck 语言解析器"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/" data-title="Python 实现的 Brainfuck 语言解析器"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/esolang/">Esolang</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/halting-problem-and-self-reference-paradox/" class="prev" rel="prev" title="关于停机问题与自指性悖论"><i class="fas fa-angle-left fa-fw"></i>关于停机问题与自指性悖论</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://st1020.top/" target="_blank">st1020</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank">CC BY-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{"gitalk":{"admin":["st1020"],"clientID":"eb330b23717cd7555155","clientSecret":"e8b919f17c3d0a42853584eb95866e28779d3426","id":"2020-09-14T19:58:28+08:00","owner":"st1020","repo":"BlogComment","title":"Python 实现的 Brainfuck 语言解析器"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
