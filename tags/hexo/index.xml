@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Hexo - 标签 - 石头的杂货铺</title>
-        <link>https://blog.st1020.top/tags/hexo/</link>
+        <link>https://st1020.top/tags/hexo/</link>
         <description>Hexo - 标签 - 石头的杂货铺</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>stone_1020@qq.com (st1020)</managingEditor>
-            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Thu, 09 Apr 2020 10:32:14 &#43;0800</lastBuildDate><atom:link href="https://blog.st1020.top/tags/hexo/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Thu, 09 Apr 2020 10:32:14 &#43;0800</lastBuildDate><atom:link href="https://st1020.top/tags/hexo/" rel="self" type="application/rss+xml" /><item>
     <title>Hexo-NexT 主题个性化定制</title>
-    <link>https://blog.st1020.top/hexo-next-theme-customization/</link>
+    <link>https://st1020.top/hexo-next-theme-customization/</link>
     <pubDate>Thu, 09 Apr 2020 10:32:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://blog.st1020.top/hexo-next-theme-customization/</guid>
+    <guid>https://st1020.top/hexo-next-theme-customization/</guid>
     <description><![CDATA[<p>本篇文章主要谈一谈我是如何个性化定制 Hexo 的NexT 主题的。</p>
 <p>Hexo 的主题有许多种，其中最知名的莫过于 NexT 主题了，我也选择了这款主题作为我的博客的默认主题。实际上，我本来是打算使用 Hugo 来搭建博客的，但苦于没有找到喜欢的主题，只好作罢。如果未来找到了足够好的主题，我应该会将博客迁移到 Hugo 上吧。本篇也是作为我折腾 Hexo 的一篇记录。</p>]]></description>
 </item></channel>
