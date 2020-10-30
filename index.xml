@@ -1,55 +1,55 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>石头的杂货铺</title>
-        <link>https://st1020.top/</link>
+        <link>https://blog.st1020.top/</link>
         <description>St1020的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>stone_1020@qq.com (st1020)</managingEditor>
             <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Mon, 14 Sep 2020 19:58:28 &#43;0800</lastBuildDate>
-            <atom:link href="https://st1020.top/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://blog.st1020.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Python 实现的 Brainfuck 语言解析器</title>
-    <link>https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/</link>
+    <link>https://blog.st1020.top/a-brainfuck-language-interpreter-implemented-in-python/</link>
     <pubDate>Mon, 14 Sep 2020 19:58:28 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/</guid>
+    <guid>https://blog.st1020.top/a-brainfuck-language-interpreter-implemented-in-python/</guid>
     <description><![CDATA[<h2 id="brainfuck">BrainFuck</h2>
 <p>BrainFuck 语言是一种深奥的编程语言（Esoteric programming language， Esolang），由 Urban Müller 于1993年创造。目的是为了创造一个简单的、最小的、符合图灵完全的编程语言。正如它的名字，BrainFuck 因为对人类极度不友好而广为人知。但是作为一种图灵完备的编程语言，理论上任何其他编程语言能够实现的程序都可以由 BrainFuck 实现。</p>]]></description>
 </item><item>
     <title>关于停机问题与自指性悖论</title>
-    <link>https://st1020.top/halting-problem-and-self-reference-paradox/</link>
+    <link>https://blog.st1020.top/halting-problem-and-self-reference-paradox/</link>
     <pubDate>Tue, 21 Jul 2020 09:56:48 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/halting-problem-and-self-reference-paradox/</guid>
+    <guid>https://blog.st1020.top/halting-problem-and-self-reference-paradox/</guid>
     <description><![CDATA[停机问题是是逻辑数学中可计算性理论的一个很经典的问题，该问题内容为：是否存在一个程序H，对于任意输入的程序P，能够判断P会在有限时间内结束或]]></description>
 </item><item>
     <title>Powered by Hugo</title>
-    <link>https://st1020.top/powered-by-hugo/</link>
+    <link>https://blog.st1020.top/powered-by-hugo/</link>
     <pubDate>Wed, 15 Jul 2020 21:56:46 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/powered-by-hugo/</guid>
+    <guid>https://blog.st1020.top/powered-by-hugo/</guid>
     <description><![CDATA[由于各种原因，已经很久没有更新博客了&hellip;鸽子真快乐。总之，从今天起，本博客正式迁移至 Hugo！ 其实在开始建立这个博客的时候我就已]]></description>
 </item><item>
     <title>Hexo-NexT 主题个性化定制</title>
-    <link>https://st1020.top/hexo-next-theme-customization/</link>
+    <link>https://blog.st1020.top/hexo-next-theme-customization/</link>
     <pubDate>Thu, 09 Apr 2020 10:32:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/hexo-next-theme-customization/</guid>
+    <guid>https://blog.st1020.top/hexo-next-theme-customization/</guid>
     <description><![CDATA[<p>本篇文章主要谈一谈我是如何个性化定制 Hexo 的NexT 主题的。</p>
 <p>Hexo 的主题有许多种，其中最知名的莫过于 NexT 主题了，我也选择了这款主题作为我的博客的默认主题。实际上，我本来是打算使用 Hugo 来搭建博客的，但苦于没有找到喜欢的主题，只好作罢。如果未来找到了足够好的主题，我应该会将博客迁移到 Hugo 上吧。本篇也是作为我折腾 Hexo 的一篇记录。</p>]]></description>
 </item><item>
     <title>Arch Linux 安装记录</title>
-    <link>https://st1020.top/arch-install/</link>
+    <link>https://blog.st1020.top/arch-install/</link>
     <pubDate>Wed, 08 Apr 2020 11:22:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/arch-install/</guid>
+    <guid>https://blog.st1020.top/arch-install/</guid>
     <description><![CDATA[<p>前几天打开好久没用的电脑，一更新把之前图省事装的 Manjaro 滚挂了，也懒得去解决，于是决定安装一个 Arch Linux ，在这里记录一下安装过程。</p>
 <p>本人是非常喜欢 Arch Linux 的，因为其高度自定义化、遵循KISS原则（Keep It Simple, Stupid）、滚动更新并且以用户为中心。但是，由于其理念为以用户为中心但不是用户友好，所以对很多人来说安装 Arch 还是有一定难度的。读者也可以参考本篇教程从零开始安装一个属于自己的 Arch 。</p>]]></description>
 </item><item>
     <title>Hello World</title>
-    <link>https://st1020.top/hello-world/</link>
+    <link>https://blog.st1020.top/hello-world/</link>
     <pubDate>Mon, 06 Apr 2020 12:09:51 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/hello-world/</guid>
+    <guid>https://blog.st1020.top/hello-world/</guid>
     <description><![CDATA[Hello World! 今天这个博客正式建立了！]]></description>
 </item></channel>
 </rss>

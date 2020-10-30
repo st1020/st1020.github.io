@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>计算机 - 标签 - 石头的杂货铺</title>
-        <link>https://st1020.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+        <link>https://blog.st1020.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
         <description>计算机 - 标签 - 石头的杂货铺</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>stone_1020@qq.com (st1020)</managingEditor>
-            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Tue, 21 Jul 2020 09:56:48 &#43;0800</lastBuildDate><atom:link href="https://st1020.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Tue, 21 Jul 2020 09:56:48 &#43;0800</lastBuildDate><atom:link href="https://blog.st1020.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
     <title>关于停机问题与自指性悖论</title>
-    <link>https://st1020.top/halting-problem-and-self-reference-paradox/</link>
+    <link>https://blog.st1020.top/halting-problem-and-self-reference-paradox/</link>
     <pubDate>Tue, 21 Jul 2020 09:56:48 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://st1020.top/halting-problem-and-self-reference-paradox/</guid>
+    <guid>https://blog.st1020.top/halting-problem-and-self-reference-paradox/</guid>
     <description><![CDATA[停机问题是是逻辑数学中可计算性理论的一个很经典的问题，该问题内容为：是否存在一个程序H，对于任意输入的程序P，能够判断P会在有限时间内结束或]]></description>
 </item></channel>
 </rss>
