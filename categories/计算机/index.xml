@@ -4,7 +4,14 @@
         <link>https://st1020.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
         <description>计算机 - 分类 - 石头的杂货铺</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>stone_1020@qq.com (st1020)</managingEditor>
-            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Mon, 14 Sep 2020 19:58:28 &#43;0800</lastBuildDate><atom:link href="https://st1020.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>stone_1020@qq.com (st1020)</webMaster><lastBuildDate>Fri, 30 Oct 2020 22:26:12 &#43;0800</lastBuildDate><atom:link href="https://st1020.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
+    <title>解决 Anaconda 使用清华源后更新时的警告</title>
+    <link>https://st1020.top/resolve-anaconda-update-warning/</link>
+    <pubDate>Fri, 30 Oct 2020 22:26:12 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://st1020.top/resolve-anaconda-update-warning/</guid>
+    <description><![CDATA[Anaconda 是一个免费开源的 Python 和 R 语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda 致力于简化包管理和部署。 使]]></description>
+</item><item>
     <title>Python 实现的 Brainfuck 语言解析器</title>
     <link>https://st1020.top/a-brainfuck-language-interpreter-implemented-in-python/</link>
     <pubDate>Mon, 14 Sep 2020 19:58:28 &#43;0800</pubDate>
